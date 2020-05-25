@@ -72,7 +72,7 @@ class Customer {
         `INSERT INTO customers (first_name, last_name, phone, notes)
              VALUES ($1, $2, $3, $4)
              RETURNING id`,
-        [this.firstName, this.lastName, this.phone, this.notes]
+        [this.firstName, this.lastName, this.phone, this.notes]   
       );
       this.id = result.rows[0].id;
     } else {
