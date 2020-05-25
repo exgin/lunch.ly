@@ -1,7 +1,7 @@
 /** Customer for Lunchly */
 
-const db = require("../db");
-const Reservation = require("./reservation");
+const db = require('../db');
+const Reservation = require('./reservation');
 
 /** Customer of the restaurant. */
 
@@ -26,7 +26,7 @@ class Customer {
        FROM customers
        ORDER BY last_name, first_name`
     );
-    return results.rows.map(c => new Customer(c));
+    return results.rows.map((c) => new Customer(c));
   }
 
   /** get a customer by ID. */
@@ -51,6 +51,11 @@ class Customer {
     }
 
     return new Customer(customer);
+  }
+
+  // the keyword 'get' used before the functon name is used to bind the property to the function, fullName. It's basically a getter function
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 
   /** get all reservations for this customer. */
